@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Appointment"
+    }
+  },
+  "defaultProject": "Appointment",
+  "cli": {
+    "analytics": "feea3368-a521-4fea-a422-3ab96ef530e8"
+  }
 }
