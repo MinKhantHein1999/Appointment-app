@@ -1,0 +1,33 @@
+<mat-spinner *ngIf="loading"></mat-spinner>
+<mat-toolbar *ngIf="successMsg" color = "warn">
+  {{successMsg}}
+</mat-toolbar>
+<mat-toolbar *ngIf="errorMsg" color = "warn">
+  {{errorMsg}}
+</mat-toolbar>
+
+<mat-card class="example-card my-5" *ngIf="!loading && !loading">
+  <mat-card-content>
+    <table class="table" *ngIf="!loading && !loading">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Appointment Date</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Cancel</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let appointment of appointments; index as i">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>{{appointment.appointDate | date : 'dd/MM/yyyy'}}</td>
+          <td>{{appointment.name}}</td>
+          <td>{{appointment.email}}</td>
+          <td><button mat-raised-button color="warn" class="btn btn-sm" (click)="cancelAppointment(appointment._id)">Cancel</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </mat-card-content>
+</mat-card>
+

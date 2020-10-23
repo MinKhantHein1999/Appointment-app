@@ -1,0 +1,51 @@
+<div class="form-group  show-hide-message">
+  <div [ngClass] = "messageClass">
+    {{message}}
+  </div>
+</div>
+<mat-card class="example-card mt-5">
+  <mat-card-content>
+    <form class="example-form" [formGroup]="bookingform">
+      <table cellspacing = "0" class="fullwidth">
+
+        <tr>
+          <td>
+          <mat-form-field class="fullwidth">
+            <mat-label>Choose a date</mat-label>
+              <input matInput [matDatepicker]="picker1" formControlName = "appointDate" placeholder="Ex.01/02/2020">
+              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+              <mat-datepicker #picker1></mat-datepicker>
+          </mat-form-field>
+        </td>
+      </tr>
+
+
+        <tr>
+          <td>
+          <mat-form-field class="fullwidth">
+            <input type="text" matInput placeholder="Full Name" formControlName ="name" name="name" required>
+          </mat-form-field>
+          <mat-error *ngIf="Name.invalid && Name.errors.maxlength">
+            <span class ="small text-warning">*Name should less than 30 character!</span>
+          </mat-error>
+        </td>
+      </tr>
+
+        <tr>
+          <td>
+          <mat-form-field class="fullwidth">
+            <input type="text" matInput placeholder="Email" formControlName ="email" name="email" required>
+          </mat-form-field>
+          <mat-error *ngIf="Email.invalid && Email.errors.email">
+            <small><strong>Please enter a valid email address</strong></small>
+          </mat-error>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </mat-card-content>
+  <mat-card-actions class="fullwidth">
+    <button mat-raised-button color="primary" class="fullwidth" (click)="saveBooking()">Submit</button>
+  </mat-card-actions>
+</mat-card>
+

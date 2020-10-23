@@ -1,0 +1,7 @@
+.example-card {
+  max-width: 500px;
+  min-width: 180px;
+}
+.fullwidth {
+  width: 100%;
+}
